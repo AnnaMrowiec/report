@@ -5,7 +5,7 @@
 
 # 0.0.2
 * Dodano wykresy chart3 i chart4
-* Dodano legendy do wykresów oraz clear axes żeby wykresy nie nakładały sie na siebie
+* Dodano legendy do wykresów oraz clear figure żeby wykresy nie nakładały sie na siebie
 * Rozpoznano konieczność zapisania XLS jako CSV z liczbami w formacie float, a nie string
 
 # 0.0.3
@@ -25,4 +25,8 @@
 * Obliczono Share of voice dla 'węgiel', 'greenpeace'
 
 # 0.0.5
-* Uporządkowano kod w 5 plikach: main, bar_chart, line_chart, wordcloud ShOV & test
+* Uporządkowano kod w 5 plikach: main, bar_chart, line_chart, wordcloud, ShOV & test
+* Zaciagnięto dane z NER'a tak aby stworzyć chmury słów kluczowych. Do konsultacji z R&D.
+* Dodano wykres Share of Voice, który automatycznie się generuje przez main.py
+* Dodano licznik czasu procesowania zapytania z zaokrągleniem do 2 miejsc po przecinku
+- To do: eksport CSV
