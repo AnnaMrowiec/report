@@ -1,0 +1,28 @@
+# 0.0.1
+* Utworzenie pliku potrzebnych do tworzenia wykresów
+* Utworzenie głównego pliku, który będzie uruchamiał cały skrypt
+* Utworzenie funkcji działającej dla wykresów chart1 i chart2
+
+# 0.0.2
+* Dodano wykresy chart3 i chart4
+* Dodano legendy do wykresów oraz clear axes żeby wykresy nie nakładały sie na siebie
+* Rozpoznano konieczność zapisania XLS jako CSV z liczbami w formacie float, a nie string
+
+# 0.0.3
+* Dodano wykres słupkowy źródeł wzmianek
+* Edytowano CSV bar1.csv tak aby w pliku bar2 tworzył się wykres procentowego udziału wzmianek per źródło
+* Utworzono algorytm automatycznie zliczający udział procentowy na podstawie bazowej CSVki
+* Dodano wykres procentowego udziału płci w liczbie wzmianek
+* Dodano wykres procentowego udziału sentymentu per źródło
+* Ujednolicono kolory i gridy wykresów
+* Dodanie znaku wodnego Sotrendera
+
+# 0.0.4
+* Dodano skrypt na tworzenie sie chmur słów kluczowych na podstawie keywordów, pozytywnego i negatywnego wydźwieku
+* Zaktualizowano wykresy słupkowe tak aby nie miały obramowania, a także dostosowano oś y do bardzo duzych liczb [chart 2]
+* Ustalono zawarcie tzw. Share of Voice w raporcie, opracowanie algorytmu liczącego z source.csv (wzmianki marki/wszystkie wzmianki)100
+* Puszczono CSV przez Named Entity Recognition
+* Obliczono Share of voice dla 'węgiel', 'greenpeace'
+
+# 0.0.5
+* Uporządkowano kod w 5 plikach: main, bar_chart, line_chart, wordcloud ShOV & test
