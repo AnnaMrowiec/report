@@ -1,12 +1,29 @@
-# 0.0.1
-* Utworzenie pliku potrzebnych do tworzenia wykresów
-* Utworzenie głównego pliku, który będzie uruchamiał cały skrypt
-* Utworzenie funkcji działającej dla wykresów chart1 i chart2
 
-# 0.0.2
-* Dodano wykresy chart3 i chart4
-* Dodano legendy do wykresów oraz clear figure żeby wykresy nie nakładały sie na siebie
-* Rozpoznano konieczność zapisania XLS jako CSV z liczbami w formacie float, a nie string
+# 0.0.7
+* Ustalono zakres badania do chart1-5, bar1-3, wordcloud1-3, pie1,, share_voice, a także nalezy dodać INI oraz top autorów
+* Wygładzono wykresy liniowe (w tym celu utworzono plik test), zdjęto gridy oraz znak wodny ze wszystkich wykresów
+* Uporządkowano i wyczyszczono kod
+* Zaktualizowano liste słów kluczowych, a przede wszystkim wykluczono Weglarczyka, czy Skarżysko-Kamienną
+* Ponownie pobrano wszystkie CSV, dzieki czemu wiadomo, że nowe projekty nie zajmą duzo czasu
+* Utworzono prezentacje podsumowującą obecny projekt, a także dokument będący tekstowym podsumowaniem zakresu badania
+
+# 0.0.6
+* Utworzono plik test, w którym utworzono skrypt na wyszukiwanie najczęściej występujących słów kluczowych
+* Przeanalizowano najczęściej występujące słowa kluczowe w celu stworzenia wykresu kołowego najczęściej pojawiających się tematów we wzmiankach
+
+# 0.0.5
+* Uporządkowano kod w 5 plikach: main, bar_chart, line_chart, wordcloud, ShOV & test
+* Zaciagnięto dane z NER'a tak aby stworzyć chmury słów kluczowych. Do konsultacji z R&D.
+* Dodano wykres Share of Voice, który automatycznie się generuje przez main.py
+* Dodano licznik czasu procesowania zapytania z zaokrągleniem do 2 miejsc po przecinku
+- To do: eksport CSV
+
+# 0.0.4
+* Dodano skrypt na tworzenie sie chmur słów kluczowych na podstawie keywordów, pozytywnego i negatywnego wydźwieku
+* Zaktualizowano wykresy słupkowe tak aby nie miały obramowania, a także dostosowano oś y do bardzo duzych liczb [chart 2]
+* Ustalono zawarcie tzw. Share of Voice w raporcie, opracowanie algorytmu liczącego z source.csv (wzmianki marki/wszystkie wzmianki)100
+* Puszczono CSV przez Named Entity Recognition
+* Obliczono Share of voice dla 'węgiel', 'greenpeace'
 
 # 0.0.3
 * Dodano wykres słupkowy źródeł wzmianek
@@ -17,16 +34,12 @@
 * Ujednolicono kolory i gridy wykresów
 * Dodanie znaku wodnego Sotrendera
 
-# 0.0.4
-* Dodano skrypt na tworzenie sie chmur słów kluczowych na podstawie keywordów, pozytywnego i negatywnego wydźwieku
-* Zaktualizowano wykresy słupkowe tak aby nie miały obramowania, a także dostosowano oś y do bardzo duzych liczb [chart 2]
-* Ustalono zawarcie tzw. Share of Voice w raporcie, opracowanie algorytmu liczącego z source.csv (wzmianki marki/wszystkie wzmianki)100
-* Puszczono CSV przez Named Entity Recognition
-* Obliczono Share of voice dla 'węgiel', 'greenpeace'
+# 0.0.2
+* Dodano wykresy chart3 i chart4
+* Dodano legendy do wykresów oraz clear figure żeby wykresy nie nakładały sie na siebie
+* Rozpoznano konieczność zapisania XLS jako CSV z liczbami w formacie float, a nie string
 
-# 0.0.5
-* Uporządkowano kod w 5 plikach: main, bar_chart, line_chart, wordcloud, ShOV & test
-* Zaciagnięto dane z NER'a tak aby stworzyć chmury słów kluczowych. Do konsultacji z R&D.
-* Dodano wykres Share of Voice, który automatycznie się generuje przez main.py
-* Dodano licznik czasu procesowania zapytania z zaokrągleniem do 2 miejsc po przecinku
-- To do: eksport CSV
+# 0.0.1
+* Utworzenie pliku potrzebnych do tworzenia wykresów
+* Utworzenie głównego pliku, który będzie uruchamiał cały skrypt
+* Utworzenie funkcji działającej dla wykresów chart1 i chart2
