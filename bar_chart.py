@@ -2,8 +2,6 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.cbook as cbook
-import matplotlib.image as image
 
 '''
 Bar 1-3 represents data from bar1.csv
@@ -19,7 +17,6 @@ def bar1():
     neutral = chart["Neutralne"]
     negative = chart["Negatywne"]
 
-
     font1 = {'family': 'serif', 'color': 'black', 'size': 20}
     font2 = {'family': 'serif', 'color': 'black', 'size': 10}
 
@@ -27,26 +24,21 @@ def bar1():
     x = np.arange(len(labels))
     width = 0.8
 
-    with cbook.get_sample_data(r'C:\Users\Anna Kaczmarczyk\Desktop\raport_buzz\sot.png') as file:
-        img = image.imread(file)
-
     fig, ax = plt.subplots()
 
     ax.bar(x, neutral, width, color=('#ee8e3b'), label='Neutralny')   # color orange
     ax.bar(x, negative, width, color=('#5cb85c'), label='Negatywny')  # color green
     ax.bar(x, positive, width, color=('#4c95ff'), label='Pozytywny')  # color blue
 
-    ax.grid(axis='y', color='gray', ls='-.', lw=0.25)
     ax.set_xticks(np.arange(len(source)))
     ax.set_xticklabels(labels, rotation=45)
 
     ax.set_title('Sentyment najpopularniejszych źródeł', fontdict=font1)
     ax.set_ylabel('Liczba wzmianek', fontdict=font2)
-    # ax.set_xlabel('Źródło', fontdict=font2)
     ax.legend(labels=['Neutralne', 'Negatywne', 'Pozytywne'])
 
     plt.subplots_adjust(bottom=0.25)
-    plt.figimage(img, xo=100, yo=250, zorder=1, alpha=0.25)
+
     plt.savefig('bar1.png')
     plt.clf()
     return
@@ -71,22 +63,18 @@ def bar2():
     x = np.arange(len(labels))
     width = 0.8
 
-    with cbook.get_sample_data(r'C:\Users\Anna Kaczmarczyk\Desktop\raport_buzz\sot.png') as file:
-        img = image.imread(file)
-
     fig, ax = plt.subplots()
     ax.bar(x, percent_mentions, width, color=('#ee8e3b'))  # color orange
-    ax.grid(axis='y', color='gray', ls='-.', lw=0.25)
+
     ax.set_xticks(np.arange(len(source)))
     ax.set_xticklabels(labels, rotation=45)
     ax.set_title('Udział procentowy źródeł', fontdict=font1)
     ax.set_ylabel('Procent wmianek', fontdict=font2)
     plt.subplots_adjust(bottom=0.25)
-    plt.figimage(img, xo=100, yo=250, zorder=1, alpha=0.25)
+
     plt.savefig('bar2.png', dpi=96)
     plt.clf()
     return
-
 
 def bar3():
     chart = pd.read_csv('bar1.csv', delimiter=';', usecols=["Zrodlo", "Pozytywne", "Neutralne", "Negatywne"])
@@ -110,23 +98,20 @@ def bar3():
     x = np.arange(len(labels))
     width = 0.8
 
-    with cbook.get_sample_data(r'C:\Users\Anna Kaczmarczyk\Desktop\raport_buzz\sot.png') as file:
-        img = image.imread(file)
-
     fig, ax = plt.subplots()
     ax.bar(x, percent_mentions_neutral, width, color=('#ee8e3b'))   # color orange
     ax.bar(x, percent_mentions_negative, width, color=('#5cb85c'))  # color green
     ax.bar(x, percent_mentions_positive, width, color=('#4c95ff'))  # color blue
 
     ax.legend(labels=['Neutralne', 'Negatywne', 'Pozytywne'])
-    ax.grid(axis='y', color='gray', ls='-.', lw=0.25)
+
     ax.set_xticks(np.arange(len(source)))
     ax.set_xticklabels(labels, rotation=45)
+
     ax.set_title('Udział procentowy sentymentu', fontdict=font1)
     ax.set_ylabel('Procent wmianek', fontdict=font2)
     plt.subplots_adjust(bottom=0.25)
 
-    plt.figimage(img, xo=100, yo=250, zorder=1, alpha=0.25)
     plt.savefig('bar3.png', dpi=96)
     plt.clf()
     return

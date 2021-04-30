@@ -3,8 +3,8 @@
 from line_chart import graph1, graph2, graph3, graph4, graph5
 from bar_chart import bar1, bar2, bar3
 from wordcloud_graph import wordcloud1, wordcloud2, wordcloud3
-from ner import ner_wordcloud1
-from ShOV import share_of_voice
+from pie_chart import pie1
+from share_voice import share_of_voice
 import time
 
 
@@ -20,13 +20,15 @@ BAR3 - PROCENTOWY UDZIAŁ SENTYMENTU WZMIANEK PER ŹRÓDŁO
 WORDCLOUD1 - CHMURA WYKORZYSTANYCH SŁÓW KLUCZOWYCH
 WORDCLOUD2 - CHMURA SŁÓW Z WYPOWIEDZI O POZYTYWNYM SENTYMENCIE
 WORDCLOUD3 - CHMURA SŁÓW Z WYPOWIEDZI O NEGATYWNYM SENTYMENCIE
+PIE1 - UDZIAŁ PROCENTOWY TEMATÓW W ŁĄCZNEJ LICZBIE WZMIANEK
+SHARE_OF_VOICE - UDZIAŁ WZMIANEK MARKI WE WSZYSTKICH WZMIANKACH
 '''
 start = time.time()
 
 print(graph1(), graph2(), graph3(), graph4(), graph5())
 print(bar1(), bar2(), bar3())
 print(wordcloud1(), wordcloud2(), wordcloud3())
-print(ner_wordcloud1())
+print(pie1())
 print(share_of_voice())
 
 end = time.time()

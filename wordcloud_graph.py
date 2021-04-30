@@ -7,20 +7,15 @@ from PIL import Image
 desired_width = 620
 pd.set_option('display.width', desired_width)
 pd.set_option('display.max_columns', 44)
-df = pd.read_csv('source.csv', usecols=["Rodzaj wzmianki", "Autor", "Tresc wypowiedzi", "Data stworzenia", "Domena", "Sentyment", "Grupa domen", "Link do wypowiedzi", "Slowa kluczowe", "Plec", "comments", "followers", "influenceScore"], delimiter=';', low_memory=False, encoding='latin-1')
+df = pd.read_csv('source.csv', usecols=["Tresc wypowiedzi", "Sentyment", 'Slowa kluczowe'], delimiter=';', low_memory=False, encoding='latin-1')
 
-
-source = df['Grupa domen']
-gender = df['Plec']
-date = df['Data stworzenia']
-comments = df['comments'].dropna()
 text = df['Tresc wypowiedzi']
 keywords = df['Slowa kluczowe']
 negative = df.loc[df['Sentyment'] == 'NEGATIVE']
 negative_text = negative['Tresc wypowiedzi']
 positive = df.loc[df['Sentyment'] == 'POSITIVE']
 positive_text = positive['Tresc wypowiedzi']
-influence_score = df['influenceScore']
+
 
 '''
 Wordclouds 1-3 are based on source.csv which is the main csv downloaded from the Source.
@@ -80,6 +75,11 @@ def wordcloud2(text=positive_text):
     stopwords.add('kluczowe')
     stopwords.add('name')
     stopwords.add('tresc')
+    stopwords.add('ze')
+    stopwords.add('jak')
+    stopwords.add('co')
+    stopwords.add('od')
+    stopwords.add('ty')
     wc = WordCloud(background_color='white',
                    colormap='Greens',
                    mask=mask,
@@ -109,6 +109,15 @@ def wordcloud3(text=negative_text):
     stopwords.add('name')
     stopwords.add('tresc')
     stopwords.add('zin')
+    stopwords.add('ze')
+    stopwords.add('jak')
+    stopwords.add('co')
+    stopwords.add('od')
+    stopwords.add('ty')
+    stopwords.add('ale')
+    stopwords.add('nie')
+    stopwords.add('tak')
+    stopwords.add('go')
     wc = WordCloud(background_color='white',
                    colormap='Oranges',
                    mask=mask,
@@ -118,4 +127,3 @@ def wordcloud3(text=negative_text):
     wc.generate(str(text))
     wc.to_file(os.path.join(currdir, 'wc_negative.png'))
     return
-

@@ -1,11 +1,9 @@
 # created on 2021-04-16 at 12:46 by Anna Mrowiec
-# ended on 2021-04-16 at 16:45 by Anna Mrowiec
 
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.cbook as cbook
-import matplotlib.image as image
+import scipy.interpolate
 
 '''
 Graph 1 is collecting data from chart1.csv
@@ -29,20 +27,23 @@ def graph1():
     font1 = {'family': 'serif', 'color': 'black', 'size': 20}
     font2 = {'family': 'serif', 'color': 'black', 'size': 10}
 
-    with cbook.get_sample_data(r'C:\Users\Anna Kaczmarczyk\Desktop\raport_buzz\sot.png') as file:
-        img = image.imread(file)
+    x = np.array(range(30))
+    y = np.array(number)
+    x_new = np.linspace(min(x), max(x), 300)
+    a_BSpline1 = scipy.interpolate.make_interp_spline(x, y)
+    y_new = a_BSpline1(x_new)
 
-    plt.plot(date, number, '#ee8e3b')   # color orange
-    plt.grid(axis="y", color='gray', ls='-.', lw=0.25)
+    plt.plot(x_new, y_new, '#ee8e3b')   # color orange
+
     plt.xticks(np.arange(0, len(date) + 1, 7))
     plt.ticklabel_format(useOffset=False, style='plain', axis='y')
     plt.ylim(ymin=0)
     plt.xlim(xmin=0)
+
     plt.title('Rozkład wzmianek w czasie', fontdict=font1)
-    plt.xlabel('Czas', fontdict=font2)
+    plt.xlabel('Czas [Dni analizy]', fontdict=font2)
     plt.ylabel('Liczba wzmianek', fontdict=font2)
 
-    plt.figimage(img, xo=100, yo=200, zorder=1, alpha=0.25)
     plt.savefig('chart1.png', dpi=96)
     plt.clf()
     return
@@ -56,30 +57,32 @@ def graph2():
     font1 = {'family': 'serif', 'color': 'black', 'size': 20}
     font2 = {'family': 'serif', 'color': 'black', 'size': 10}
 
-    with cbook.get_sample_data(r'C:\Users\Anna Kaczmarczyk\Desktop\raport_buzz\sot.png') as file:
-        img = image.imread(file)
+    x = np.array(range(30))
+    y = np.array(number)
+    x_new = np.linspace(min(x), max(x), 300)
+    a_BSpline1 = scipy.interpolate.make_interp_spline(x, y)
+    y_new = a_BSpline1(x_new)
 
-    plt.plot(date, number, '#ee8e3b')   # color orange
-    plt.grid(axis="y", color='gray', ls='-.', lw=0.25)
+    plt.plot(x_new, y_new, '#ee8e3b')   # color orange
+
     plt.xticks(np.arange(0, len(date) + 1, 7))
     plt.ticklabel_format(useOffset=False, style='plain', axis='y')
     plt.subplots_adjust(left=0.16)
     plt.ylim(ymin=0)
     plt.xlim(xmin=0)
+
     plt.title('Zasięg wzmianek w czasie', fontdict=font1)
-    plt.xlabel('Czas', fontdict=font2)
+    plt.xlabel('Czas [Dni analizy]', fontdict=font2)
     plt.ylabel('Zasięg', fontdict=font2)
 
-    plt.figimage(img, xo=100, yo=200, zorder=1, alpha=0.25)
     plt.savefig('chart2.png', dpi=96)
     plt.clf()
     return
 
 def graph3():
-    chart = pd.read_csv('chart3.csv', delimiter=';', usecols=["Date", "Twitter", "Fora", "Facebook", "Portale"])
+    chart = pd.read_csv('chart3.csv', delimiter=';', usecols=["Date", "Twitter", "Facebook", "Portale"])
     date = chart['Date']
     twitter = chart["Twitter"]
-    fora = chart["Fora"]
     facebook = chart["Facebook"]
     portals = chart["Portale"]
 
@@ -87,23 +90,33 @@ def graph3():
     font1 = {'family': 'serif', 'color': 'black', 'size': 20}
     font2 = {'family': 'serif', 'color': 'black', 'size': 10}
 
-    with cbook.get_sample_data(r'C:\Users\Anna Kaczmarczyk\Desktop\raport_buzz\sot.png') as file:
-        img = image.imread(file)
+    x = np.array(range(30))
+    y = np.array(twitter)
+    z = np.array(facebook)
+    u = np.array(portals)
+    x_new = np.linspace(min(x), max(x), 300)
+    a_BSpline1 = scipy.interpolate.make_interp_spline(x, y)
+    a_BSpline2 = scipy.interpolate.make_interp_spline(x, z)
+    a_BSpline3 = scipy.interpolate.make_interp_spline(x, u)
+    y_new = a_BSpline1(x_new)
+    z_new = a_BSpline2(x_new)
+    u_new = a_BSpline3(x_new)
 
-    plt.plot(date, twitter, '#ee8e3b', label="Twitter")    # color orange
-    plt.plot(date, facebook, '#5cb85c', label="Facebook")  # color green
-    plt.plot(date, portals, '#4c95ff', label="Portals")    # color blue
+    plt.plot(x_new, y_new, '#ee8e3b', label="Twitter")    # color orange
+    plt.plot(x_new, z_new, '#5cb85c', label="Facebook")  # color green
+    plt.plot(x_new, u_new, '#4c95ff', label="Portals")    # color blue
+
     plt.legend(loc="upper left", labels=['Twitter', 'Facebook', 'Portals'])
-    plt.grid(axis="y", color='gray', ls='-.', lw=0.25)
+
     plt.xticks(np.arange(0, len(date) + 1, 7))
     plt.ylim(ymin=0)
     plt.xlim(xmin=0)
+
     plt.title('Rozkład wzmianek w czasie wg źródeł', fontdict=font1)
-    plt.xlabel('Czas', fontdict=font2)
+    plt.xlabel('Czas [Dni analizy]', fontdict=font2)
     plt.ylabel('Liczba wzmianek', fontdict=font2)
 
-    plt.figimage(img, xo=100, yo=200, zorder=1, alpha=0.25)
-    plt.savefig('graph3.png', dpi=96)
+    plt.savefig('chart3.png', dpi=96)
     plt.clf()
     return
 
@@ -117,22 +130,28 @@ def graph4():
     font1 = {'family': 'serif', 'color': 'black', 'size': 20}
     font2 = {'family': 'serif', 'color': 'black', 'size': 10}
 
-    with cbook.get_sample_data(r'C:\Users\Anna Kaczmarczyk\Desktop\raport_buzz\sot.png') as file:
-        img = image.imread(file)
+    x = np.array(range(30))
+    y = np.array(women)
+    z = np.array(men)
+    x_new = np.linspace(min(x), max(x), 300)
+    a_BSpline1 = scipy.interpolate.make_interp_spline(x, y)
+    a_BSpline2 = scipy.interpolate.make_interp_spline(x, z)
+    y_new = a_BSpline1(x_new)
+    z_new = a_BSpline2(x_new)
 
-    plt.plot(date, women, '#ee8e3b', label='Kobiety')  # color orange
-    plt.plot(date, men, '#5cb85c', label='Mężczyźni')  # color green
+    plt.plot(x_new, y_new, '#ee8e3b', label='Kobiety')  # color orange
+    plt.plot(x_new, z_new, '#5cb85c', label='Mężczyźni')  # color green
+
     plt.legend(loc="upper left")
-    plt.grid(axis="y", color='gray', ls='-.', lw=0.25)
     plt.xticks(np.arange(0, len(date) + 1, 7))
     plt.ylim(ymin=0)
     plt.xlim(xmin=0)
+
     plt.title('Rozkład wzmianek w czasie wg płci autora', fontdict=font1)
-    plt.xlabel('Czas', fontdict=font2)
+    plt.xlabel('Czas [Dni analizy]', fontdict=font2)
     plt.ylabel('Liczba wzmianek', fontdict=font2)
 
-    plt.figimage(img, xo=100, yo=200, zorder=1, alpha=0.25)
-    plt.savefig('graph4.png', dpi=96)
+    plt.savefig('chart4.png', dpi=96)
     plt.clf()
     return
 
@@ -153,22 +172,27 @@ def graph5():
     font1 = {'family': 'serif', 'color': 'black', 'size': 20}
     font2 = {'family': 'serif', 'color': 'black', 'size': 10}
 
-    with cbook.get_sample_data(r'C:\Users\Anna Kaczmarczyk\Desktop\raport_buzz\sot.png') as file:
-        img = image.imread(file)
+    x = np.array(range(30))
+    y = np.array(percent_mentions_women)
+    z = np.array(percent_mentions_men)
+    x_new = np.linspace(min(x), max(x), 300)
+    a_BSpline1 = scipy.interpolate.make_interp_spline(x, y)
+    a_BSpline2 = scipy.interpolate.make_interp_spline(x, z)
+    y_new = a_BSpline1(x_new)
+    z_new = a_BSpline2(x_new)
 
-    plt.plot(date, percent_mentions_women, '#ee8e3b', label='Kobiety')  # color orange
-    plt.plot(date, percent_mentions_men, '#5cb85c', label='Mężczyźni')  # color green
-    plt.grid(axis="y", color='gray', ls='-.', lw=0.25)
+    plt.plot(x_new, y_new, '#ee8e3b', label='Kobiety')  # color orange
+    plt.plot(x_new, z_new, '#5cb85c', label='Mężczyźni')  # color green
+
     plt.xticks(np.arange(0, len(date) + 1, 7))
     plt.ylim(ymin=0)
     plt.xlim(xmin=0)
     plt.legend(loc="upper left")
+
     plt.title('Procentowy udział płci', fontdict=font1)
-    plt.xlabel('Czas', fontdict=font2)
+    plt.xlabel('Czas [Dni analizy]', fontdict=font2)
     plt.ylabel('Procent wzmianek', fontdict=font2)
 
-    plt.figimage(img, xo=100, yo=200, zorder=1, alpha=0.25)
-    plt.savefig('graph5.png', dpi=96)
+    plt.savefig('chart5.png', dpi=96)
     plt.clf()
     return
-
