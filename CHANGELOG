@@ -1,0 +1,77 @@
+# 0.0.13
+* Dodano algorytm liczący najczęściej wystepujące hashtagi z uzyciem reg-ex
+* Dodano wykres słupkowy z najczęściej występującymi hashtagami
+
+# 0.0.12
+* Dodano foldery na pliki CSV z danymi źródłowymi oraz folder na gotowe wykresy
+* Dodano ścieżki do nowych folderów w kodzie
+* Dodano plik .gitignore i wyczyszczono GITa
+* Dodano plik READ_ME.md i uporządkowano kod
+* Uaktualniono wymagania z pliku requirements.txt
+* Aktualizowano stopwords
+
+# 0.0.11
+* Poprawiono wykres Share of Voice, jako wykres uzycia hashtagów.
+* Dodano wykres kołowy udziału płci w dyskusji i połączono go z main.py
+
+# 0.0.10
+* Korekta wykresu kołowego tak aby legenda zaczynała się od współczynnika o najwiekszym udziale
+* Dodano wykres słupkowy z rozdziałem na sentyment pozytywny i negatywny per źródło bar4
+* Ustawiono szerokość słupków w wykresach słupkowych na 0.4 tak, aby na wykresie bar4 słupki nie nachodziły na siebie
+* Dodano nowe stopwords do chmur słów kluczowych tak, aby chmury przedstawiały fktyczne elementy dyskursu
+
+# 0.0.9
+* Obliczono DataFrame dla nowych wskaźników określających zaangażowanie autorów postujących treści
+* Dodano wykresy o najlepszych autorach i najczęściej postujących
+* Całość powiązano z plikiem main oraz dodano do prezentacji
+
+# 0.0.8
+* Poprawiono zakres dat w wykresach liniowych
+* Poprawiono etykiety osi x w wykresach słupkowych
+* Dodano obliczenia Interactivity Index (reactions=1; comments=4; shares=16)
+* Stworzono wykres do Interactivity Index. W tym konkretnym wypadku opis etykiet jest ręczny.
+
+# 0.0.7
+* Ustalono zakres badania do chart1-5, bar1-3, wordcloud1-3, pie1,, share_voice, a także nalezy dodać INI oraz top autorów
+* Wygładzono wykresy liniowe (w tym celu utworzono plik test), zdjęto gridy oraz znak wodny ze wszystkich wykresów
+* Uporządkowano i wyczyszczono kod
+* Zaktualizowano liste słów kluczowych, a przede wszystkim wykluczono Weglarczyka, czy Skarżysko-Kamienną
+* Ponownie pobrano wszystkie CSV, dzieki czemu wiadomo, że nowe projekty nie zajmą duzo czasu
+* Utworzono prezentacje podsumowującą obecny projekt, a także dokument będący tekstowym podsumowaniem zakresu badania
+
+# 0.0.6
+* Utworzono plik test, w którym utworzono skrypt na wyszukiwanie najczęściej występujących słów kluczowych
+* Przeanalizowano najczęściej występujące słowa kluczowe w celu stworzenia wykresu kołowego najczęściej pojawiających się tematów we wzmiankach
+
+# 0.0.5
+* Uporządkowano kod w 5 plikach: main, bar_chart, line_chart, wordcloud, ShOV & test
+* Zaciagnięto dane z NER'a tak aby stworzyć chmury słów kluczowych. Do konsultacji z R&D.
+* Dodano wykres Share of Voice, który automatycznie się generuje przez main.py
+* Dodano licznik czasu procesowania zapytania z zaokrągleniem do 2 miejsc po przecinku
+- To do: eksport CSV
+
+# 0.0.4
+* Dodano skrypt na tworzenie sie chmur słów kluczowych na podstawie keywordów, pozytywnego i negatywnego wydźwieku
+* Zaktualizowano wykresy słupkowe tak aby nie miały obramowania, a także dostosowano oś y do bardzo duzych liczb [chart 2]
+* Ustalono zawarcie tzw. Share of Voice w raporcie, opracowanie algorytmu liczącego z source.csv (wzmianki marki/wszystkie wzmianki)100
+* Puszczono CSV przez Named Entity Recognition
+* Obliczono Share of voice dla 'węgiel', 'greenpeace'
+
+# 0.0.3
+* Dodano wykres słupkowy źródeł wzmianek
+* Edytowano CSV bar1.csv tak aby w pliku bar2 tworzył się wykres procentowego udziału wzmianek per źródło
+* Utworzono algorytm automatycznie zliczający udział procentowy na podstawie bazowej CSVki
+* Dodano wykres procentowego udziału płci w liczbie wzmianek
+* Dodano wykres procentowego udziału sentymentu per źródło
+* Ujednolicono kolory i gridy wykresów
+* Dodanie znaku wodnego Sotrendera
+
+# 0.0.2
+* Dodano wykresy chart3 i chart4
+* Dodano legendy do wykresów oraz clear figure żeby wykresy nie nakładały sie na siebie
+* Rozpoznano konieczność zapisania XLS jako CSV z liczbami w formacie float, a nie string
+
+# 0.0.1
+* Utworzenie pliku potrzebnych do tworzenia wykresów
+* Utworzenie głównego pliku, który będzie uruchamiał cały skrypt
+* Utworzenie funkcji działającej dla wykresów chart1 i chart2
