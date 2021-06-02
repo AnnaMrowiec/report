@@ -30,22 +30,23 @@ def interactivity():
     InI_Author_FB = pd.concat([author, fb["InI_FB"]], axis=1)
     InI_Author_FB = InI_Author_FB.dropna().sort_values('InI_FB', ascending=False).head(10)
 
-    font1 = {'family': 'serif', 'color': 'black', 'size': 20}
-    font2 = {'family': 'serif', 'color': 'black', 'size': 10}
+    font1 = {'family': 'sans-serif', 'color': 'black', 'size': 20}
+    font2 = {'family': 'sans-serif', 'color': 'black', 'size': 10}
 
     interactivity = InI_Author_FB['InI_FB']
     labels = InI_Author_FB['Autor']
     x = np.arange(len(labels))
-    width = 0.8
+    width = 0.4
 
     fig, ax = plt.subplots()
     ax.bar(x, interactivity, width, color=('#ee8e3b'))  # color orange
 
     ax.set_xticks(np.arange(len(x)))
-    ax.set_xticklabels(['TVN24', 'OKO.Press', 'PolsatNews', 'ONET', 'tvp.info', 'IUSTITIA', 'MKS', 'Lidl PL', 'Planszowe Newsy', "Nauka"], rotation=45, ha='right')
-    ax.set_title('Najbardziej aktywni autorzy', fontdict=font1)
+    ax.set_xticklabels(['TVN24', 'OKO.Press', 'PolsatNews', 'ONET', 'tvp.info', 'IUSTITIA', 'MSKlimatyczny', 'Lidl PL', 'Planszowe Newsy', "Nauka"], rotation=45, ha='right')
+    ax.set_title('NAJBARDZIEJ AKTYWNI AUTORZY', fontdict=font1)
     ax.set_ylabel('Interactivity Index', fontdict=font2)
     plt.subplots_adjust(bottom=0.25)
+    plt.box(on=False)
 
     plt.savefig('charts/ini.png')
     plt.clf()
@@ -58,8 +59,8 @@ def influenceScore():
     author = df[['Autor', 'influenceScore']]
     best_author = author.dropna().sort_values('influenceScore', ascending=False).head(10)
 
-    font1 = {'family': 'serif', 'color': 'black', 'size': 20}
-    font2 = {'family': 'serif', 'color': 'black', 'size': 10}
+    font1 = {'family': 'sans-serif', 'color': 'black', 'size': 20}
+    font2 = {'family': 'sans-serif', 'color': 'black', 'size': 10}
 
     influScore = best_author['influenceScore']
     labels = best_author['Autor']
@@ -71,9 +72,10 @@ def influenceScore():
 
     ax.set_xticks(np.arange(len(x)))
     ax.set_xticklabels(labels=['Karolina Gawot', 'OKO.Press', 'TVN24', 'Onet', 'tvp.info', 'PolsatNews', '@tvp_info', '@Piechociński', '@OnetWiadomosci', '@Piechociński'], rotation=45, ha='right')
-    ax.set_title('Najlepsi autorzy', fontdict=font1)
+    ax.set_title('NAJLEPSI AUTORZY', fontdict=font1)
     ax.set_ylabel('Influence Score', fontdict=font2)
     plt.subplots_adjust(bottom=0.25)
+    plt.box(on=False)
 
     plt.savefig('charts/influence.png')
     plt.clf()
@@ -90,8 +92,8 @@ def appearance_frequency():
     ap = freq.rename(columns={'index': 'Autor',
                             'Autor': 'Appearance'})
 
-    font1 = {'family': 'serif', 'color': 'black', 'size': 20}
-    font2 = {'family': 'serif', 'color': 'black', 'size': 10}
+    font1 = {'family': 'sans-serif', 'color': 'black', 'size': 20}
+    font2 = {'family': 'sans-serif', 'color': 'black', 'size': 10}
 
     appearance = ap['Appearance']
     labels = ap['Autor']
@@ -103,9 +105,10 @@ def appearance_frequency():
 
     ax.set_xticks(np.arange(len(x)))
     ax.set_xticklabels(labels=labels, rotation=45, ha='right')
-    ax.set_title('Najczęściej komentujący autorzy', fontdict=font1)
+    ax.set_title('NAJCZĘŚCIEJ KOMENTUJĄCY AUTORZY', fontdict=font1)
     ax.set_ylabel('Suma komentarzy', fontdict=font2)
     plt.subplots_adjust(bottom=0.30)
+    plt.box(on=False)
 
     plt.savefig('charts/appear.png')
     plt.clf()

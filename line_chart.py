@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.interpolate
+from textwrap import wrap
 
 '''
 Graph 1 is collecting data from chart1.csv
@@ -24,8 +25,8 @@ def graph1():
     number = chart['Number']
 
     # Setting fonts and colours for the chart
-    font1 = {'family': 'serif', 'color': 'black', 'size': 20}
-    font2 = {'family': 'serif', 'color': 'black', 'size': 10}
+    font1 = {'family': 'sans-serif', 'color': 'black', 'size': 20}
+    font2 = {'family': 'sans-serif', 'color': 'black', 'size': 10}
 
     x = np.array(range(30))
     y = np.array(number)
@@ -40,7 +41,8 @@ def graph1():
     plt.ylim(ymin=0)
     plt.xlim(xmin=0)
 
-    plt.title('Rozkład wzmianek w czasie', fontdict=font1)
+    plt.box(on=False)
+    plt.title('ROZKŁAD WZMIANEK W CZASIE', fontdict=font1)
     plt.xlabel('Zakres czasu', fontdict=font2)
     plt.ylabel('Liczba wzmianek', fontdict=font2)
 
@@ -54,8 +56,8 @@ def graph2():
     number = chart['Number']
 
     # Setting fonts and colours for the chart
-    font1 = {'family': 'serif', 'color': 'black', 'size': 20}
-    font2 = {'family': 'serif', 'color': 'black', 'size': 10}
+    font1 = {'family': 'sans-serif', 'color': 'black', 'size': 20}
+    font2 = {'family': 'sans-serif', 'color': 'black', 'size': 10}
 
     x = np.array(range(30))
     y = np.array(number)
@@ -71,7 +73,8 @@ def graph2():
     plt.ylim(ymin=0)
     plt.xlim(xmin=0)
 
-    plt.title('Zasięg wzmianek w czasie', fontdict=font1)
+    plt.box(on=False)
+    plt.title('ZASIĘG WZMIANEK W CZASIE', fontdict=font1)
     plt.xlabel('Zakres czasu', fontdict=font2)
     plt.ylabel('Zasięg', fontdict=font2)
 
@@ -87,8 +90,8 @@ def graph3():
     portals = chart["Portale"]
 
      # Setting fonts and colours for the chart
-    font1 = {'family': 'serif', 'color': 'black', 'size': 20}
-    font2 = {'family': 'serif', 'color': 'black', 'size': 10}
+    font1 = {'family': 'sans-serif', 'color': 'black', 'size': 20}
+    font2 = {'family': 'sans-serif', 'color': 'black', 'size': 10}
 
     x = np.array(range(30))
     y = np.array(twitter)
@@ -108,13 +111,15 @@ def graph3():
 
     plt.legend(loc="upper left", labels=['Twitter', 'Facebook', 'Portals'])
 
+    plt.box(on=False)
     plt.xticks(np.arange(0, len(date) + 1, 7),  labels=date[0::7])
     plt.ylim(ymin=0)
     plt.xlim(xmin=0)
 
-    plt.title('Rozkład wzmianek w czasie wg źródeł', fontdict=font1)
+    plt.title('\n'.join(wrap('ROZKŁAD WZMIANEK W CZASIE WG ŹRÓDEŁ', 25)), fontdict=font1)
     plt.xlabel('Zakres czasu', fontdict=font2)
     plt.ylabel('Liczba wzmianek', fontdict=font2)
+    plt.tight_layout()
 
     plt.savefig('charts/chart3.png', dpi=96)
     plt.clf()
@@ -127,8 +132,8 @@ def graph4():
     men = chart['Mezczyzni']
 
     # Setting fonts and colours for the chart
-    font1 = {'family': 'serif', 'color': 'black', 'size': 20}
-    font2 = {'family': 'serif', 'color': 'black', 'size': 10}
+    font1 = {'family': 'sans-serif', 'color': 'black', 'size': 20}
+    font2 = {'family': 'sans-serif', 'color': 'black', 'size': 10}
 
     x = np.array(range(30))
     y = np.array(women)
@@ -139,15 +144,16 @@ def graph4():
     y_new = a_BSpline1(x_new)
     z_new = a_BSpline2(x_new)
 
-    plt.plot(x_new, y_new, '#ee8e3b', label='Kobiety')  # color orange
-    plt.plot(x_new, z_new, '#5cb85c', label='Mężczyźni')  # color green
+    plt.plot(x_new, z_new, color='#5cb85c', label='Mężczyźni')  # color green
+    plt.plot(x_new, y_new, color=('#22a1f0'), label='Kobiety')  # color blue
 
     plt.legend(loc="upper left")
     plt.xticks(np.arange(0, len(date) + 1, 7),  labels=date[0::7])
     plt.ylim(ymin=0)
     plt.xlim(xmin=0)
+    plt.box(on=False)
 
-    plt.title('Rozkład wzmianek w czasie wg płci autora', fontdict=font1)
+    plt.title('\n'.join(wrap('ROZKŁAD WZMIANEK W CZASIE WG PŁCI AUTORA', 25)), fontdict=font1)
     plt.xlabel('Zakres czasu', fontdict=font2)
     plt.ylabel('Liczba wzmianek', fontdict=font2)
 
@@ -169,8 +175,8 @@ def graph5():
     percent_mentions = percent of mentions per each gender and each day 
     '''
 
-    font1 = {'family': 'serif', 'color': 'black', 'size': 20}
-    font2 = {'family': 'serif', 'color': 'black', 'size': 10}
+    font1 = {'family': 'sans-serif', 'color': 'black', 'size': 20}
+    font2 = {'family': 'sans-serif', 'color': 'black', 'size': 10}
 
     x = np.array(range(30))
     y = np.array(percent_mentions_women)
@@ -181,15 +187,16 @@ def graph5():
     y_new = a_BSpline1(x_new)
     z_new = a_BSpline2(x_new)
 
-    plt.plot(x_new, y_new, '#ee8e3b', label='Kobiety')  # color orange
     plt.plot(x_new, z_new, '#5cb85c', label='Mężczyźni')  # color green
+    plt.plot(x_new, y_new, color=('#22a1f0'), label='Kobiety')  # color blue
 
     plt.xticks(np.arange(0, len(date) + 1, 7),  labels=date[0::7])
     plt.ylim(ymin=0)
     plt.xlim(xmin=0)
     plt.legend(loc="upper left")
+    plt.box(on=False)
 
-    plt.title('Procentowy udział płci', fontdict=font1)
+    plt.title('PROCENTOWY UDZIAŁ PŁCI', fontdict=font1)
     plt.xlabel('Zakres czasu', fontdict=font2)
     plt.ylabel('Procent wzmianek', fontdict=font2)
 

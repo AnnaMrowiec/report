@@ -1,3 +1,19 @@
+# 0.0.16
+* Dodanie wykresu słupkowego bar6 o stosunku płci w dyskursie
+* Korekta koloru wykresu chart4 i chart5
+
+# 0.0.15
+* Opracowanie algorytmy liczącego rodzaj wzmianek po słowach kluczowych przefiltrowane po sentymencie
+* Stworzenie wykresu słupkowego bar5 pokazującego stosunek tego sentymentu
+
+# 0.0.14
+* Zmiana czcionki w nazwach wykresów na bezszeryfową
+* Zmiana tytułów na pisane duzymi literami
+* Usunięto obramowanie wykresów
+* Dodano wrap długicz tytułów
+* Zmiana koloru niebieskiego na sentymencie
+* Dodanie nowego algorytmy do liczenia hashtagów
+
 # 0.0.13
 * Dodano algorytm liczący najczęściej wystepujące hashtagi z uzyciem reg-ex
 * Dodano wykres słupkowy z najczęściej występującymi hashtagami

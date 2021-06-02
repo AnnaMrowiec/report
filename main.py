@@ -1,7 +1,7 @@
 # created on 2021-04-16 at 12:45 by Anna Mrowiec
 
 from line_chart import graph1, graph2, graph3, graph4, graph5
-from bar_chart import bar1, bar2, bar3, bar4
+from bar_chart import bar1, bar2, bar3, bar4, bar5, bar6
 from wordcloud_chart import wordcloud1, wordcloud2, wordcloud3
 from pie_chart import share, gender
 from author_chart import interactivity, influenceScore, appearance_frequency
@@ -31,11 +31,11 @@ HASHTAG- UDZIAŁ WZMIANEK MARKI/SŁÓW KLUCZOWYCH WE WSZYSTKICH WZMIANKACH
 '''
 start = time.time()
 
-# print('Wykresy liniowe: ', graph1(), graph2(), graph3(), graph4(), graph5())
-# print('Wykresy słupkowe: ', bar1(), bar2(), bar3(), bar4())
+print('Wykresy liniowe: ', graph1(), graph2(), graph3(), graph4(), graph5())
+print('Wykresy słupkowe: ', bar1(), bar2(), bar3(), bar4(), bar5(), bar6())
 # print('Chmury słów kluczowych: ', wordcloud1(), wordcloud2(), wordcloud3())
-# print('Wykresy kołowe: ', share(), gender())
-# print('Autorzy: ', interactivity(), influenceScore(), appearance_frequency())
+print('Wykresy kołowe: ', share(), gender())
+print('Autorzy: ', interactivity(), influenceScore(), appearance_frequency())
 print('Analiza hashtagów: ', hashtag(), count_hashtag())
 
 
